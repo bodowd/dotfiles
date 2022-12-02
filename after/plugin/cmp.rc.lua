@@ -11,7 +11,7 @@ cmp.setup({
     mapping = cmp.mapping.preset.insert({
         ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s" }),
         ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s" }),
-        ['<Esc>'] = cmp.mapping(cmp.mapping.abort()),
+        ['<C-c>'] = cmp.mapping(cmp.mapping.abort()),
         ['<CR>'] = cmp.mapping.confirm({
             behavior = cmp.ConfirmBehavior.Replace,
         }),
