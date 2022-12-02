@@ -51,3 +51,7 @@ vim.opt.clipboard:append { 'unnamedplus' }
 -- stop automatic newline continuation of comments
 vim.cmd("autocmd BufEnter * set formatoptions-=cro")
 vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
+
+-- remap F1 to do nothing. Keep accidently hitting it
+vim.cmd("nnoremap <F1> <Nop>")
+vim.cmd("inoremap <F1> <Nop>")
