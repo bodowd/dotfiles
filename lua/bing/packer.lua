@@ -41,4 +41,5 @@ return require('packer').startup(function(use)
     use 'nvim-telescope/telescope-file-browser.nvim'
     use 'kyazdani42/nvim-web-devicons' -- File icons for telescope browswer
 
+    use 'lewis6991/gitsigns.nvim'
 end)
