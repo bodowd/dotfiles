@@ -14,11 +14,13 @@ end
 
 -- find builtin formatters here
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
+-- if Mason doesn't have the formatter, you need to install it manually
 null_ls.setup {
     sources = {
         null_ls.builtins.formatting.prettierd,
         null_ls.builtins.formatting.black,
-        null_ls.builtins.formatting.clang_format
+        null_ls.builtins.formatting.clang_format,
+        null_ls.builtins.formatting.terraform_fmt
         --    null_ls.builtins.diagnostics.eslint_d.with({
         --      diagnostics_format = '[eslint] #{m}\n(#{c})'
         --    })

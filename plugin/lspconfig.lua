@@ -61,6 +61,9 @@ nvim_lsp.cssls.setup {
 
 }
 
+-- needed to run :TSInstall hcl to get the syntax highlighting
+nvim_lsp.terraformls.setup {}
+
 local sumneko_root_path = "/home/bing/tools/lua-language-server"
 local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
 
