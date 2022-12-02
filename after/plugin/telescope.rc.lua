@@ -5,8 +5,6 @@ local actions = require('telescope.actions')
 local builtin = require("telescope.builtin")
 local fb_actions = require "telescope".extensions.file_browser.actions
 
-
-
 telescope.setup {
     defaults = {
         mappings = {
@@ -19,8 +17,16 @@ telescope.setup {
             }
         }
     },
+    pickers = {
+        live_grep = { additional_args = function(opts) return { "--hidden" } end },
+        find_files = {
+            find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/**" }
+        }
+    },
     extensions = {
         file_browser = {
+            hidden = true,
+            hide_parent_dir = true,
             initial_mode = "normal",
             theme = "dropdown",
             -- disables netrw and use telescope-file-browser in its place
