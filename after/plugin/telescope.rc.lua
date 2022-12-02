@@ -27,7 +27,8 @@ telescope.setup {
                     -- y is copy
                     ["N"] = fb_actions.create,
                     ["rn"] = fb_actions.rename,
-                    ["up"] = fb_actions.goto_parent_dir
+                    ["up"] = fb_actions.goto_parent_dir,
+                    ["<C-c>"] = actions.close
                 },
             },
         },
