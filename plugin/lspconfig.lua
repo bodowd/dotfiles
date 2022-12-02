@@ -42,7 +42,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- find lsps here
 -- add the setup below
 -- install in Mason
--- set up in nullls
+-- set up formatter in nullls
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#clangd
 
 nvim_lsp.tsserver.setup {
