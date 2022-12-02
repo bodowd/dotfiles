@@ -66,11 +66,20 @@ nvim_lsp.yamlls.setup {}
 -- needed to run :TSInstall hcl to get the syntax highlighting
 nvim_lsp.terraformls.setup {}
 
-local sumneko_root_path = "/home/bing/tools/lua-language-server"
-local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
+local osname = vim.loop.os_uname().sysname
+local sumneko_cmd
+if osname == "Darwin" then
+    sumneko_cmd = { "lua-language-server" }
+end
+if osname == "Unix" then
+    local sumneko_root_path = "/home/bing/tools/lua-language-server"
+    local sumneko_binary    = sumneko_root_path .. "/bin/lua-language-server"
+    sumneko_cmd             = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" }
+end
+
 
 nvim_lsp.sumneko_lua.setup {
-    cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
+    cmd = sumneko_cmd,
     capabilities = capabilities,
     on_attach = function(client, bufnr)
         on_attach(client, bufnr)
