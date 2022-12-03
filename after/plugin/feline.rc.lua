@@ -27,7 +27,7 @@ local vi_mode_colors = {
     LINES = "purple",
     BLOCK = "dark_red",
     REPLACE = "yellow",
-    COMMAND = "teal",
+    COMMAND = "green",
 }
 
 local c = {
