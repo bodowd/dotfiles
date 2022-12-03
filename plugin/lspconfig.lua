@@ -71,7 +71,7 @@ local sumneko_cmd
 if osname == "Darwin" then
     sumneko_cmd = { "lua-language-server" }
 end
-if osname == "Unix" then
+if osname == "Linux" then
     local sumneko_root_path = "/home/bing/tools/lua-language-server"
     local sumneko_binary    = sumneko_root_path .. "/bin/lua-language-server"
     sumneko_cmd             = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" }
