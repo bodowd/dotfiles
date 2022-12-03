@@ -20,7 +20,7 @@ local tokyonight = {
 }
 
 local vi_mode_colors = {
-    NORMAL = "blue",
+    NORMAL = "peanut",
     OP = "green",
     INSERT = "red",
     VISUAL = "purple",
@@ -53,7 +53,7 @@ local c = {
     gitBranch = {
         provider = "git_branch",
         hl = {
-            fg = "peanut",
+            fg = "white",
             bg = "darkblue",
             style = "bold",
         },
