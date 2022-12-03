@@ -6,7 +6,6 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     -- colorthemes
-    use 'luisiacc/gruvbox-baby'
     use 'folke/tokyonight.nvim'
     -- use 'tjdevries/colorbuddy.nvim'
     --    use {
@@ -14,7 +13,8 @@ return require('packer').startup(function(use)
     --        requires = { 'tjdevries/colorbuddy.nvim' }
     --    }
 
-    use 'nvim-lualine/lualine.nvim' -- Statusline
+    use 'feline-nvim/feline.nvim' -- Status line
+
     use 'nvim-lua/plenary.nvim' -- Common utilities
     use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
     use 'hrsh7th/cmp-nvim-lsp' -- nvim-cmp source for neovim's built-in LSP
