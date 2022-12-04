@@ -123,7 +123,13 @@ nvim_lsp.clangd.setup {
 
 nvim_lsp.gopls.setup {
     on_attach = on_attach,
-    capabilities = capabilities
+    capabilities = capabilities,
+    settings = {
+        gopls = {
+            analyses = { unusedparams = true }
+        },
+        staticcheck = true
+    }
 }
 
 

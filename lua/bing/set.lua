@@ -55,3 +55,11 @@ vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
 -- remap F1 to do nothing. Keep accidently hitting it
 vim.cmd("nnoremap <F1> <Nop>")
 vim.cmd("inoremap <F1> <Nop>")
+
+
+vim.cmd("nnoremap <leader>1 1gt")
+vim.cmd("nnoremap <leader>2 2gt")
+vim.cmd("nnoremap <leader>3 3gt")
+vim.cmd("nnoremap <leader>4 4gt")
+vim.cmd("nnoremap H :tabprevious<CR>")
+vim.cmd("nnoremap L :tabnext<CR>")
