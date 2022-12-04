@@ -57,14 +57,14 @@ local css_lsp_capabilities = vim.lsp.protocol.make_client_capabilities()
 css_lsp_capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 nvim_lsp.cssls.setup {
+    on_attach = on_attach,
     capabilities = css_lsp_capabilities
-
 }
 
-nvim_lsp.yamlls.setup {}
+nvim_lsp.yamlls.setup { on_attach = on_attach }
 
 -- needed to run :TSInstall hcl to get the syntax highlighting
-nvim_lsp.terraformls.setup {}
+nvim_lsp.terraformls.setup { on_attach = on_attach }
 
 local osname = vim.loop.os_uname().sysname
 local sumneko_cmd
@@ -102,6 +102,7 @@ nvim_lsp.sumneko_lua.setup {
 }
 
 nvim_lsp.pylsp.setup {
+    on_attach = on_attach,
     settings = {
         pylsp = {
             plugins = {
@@ -111,10 +112,19 @@ nvim_lsp.pylsp.setup {
                 }
             }
         }
-    }
+    },
+    capabilities = capabilities
 }
 
-nvim_lsp.clangd.setup {}
+nvim_lsp.clangd.setup {
+    on_attach = on_attach,
+    capabilities = capabilities
+}
+
+nvim_lsp.gopls.setup {
+    on_attach = on_attach,
+    capabilities = capabilities
+}
 
 
 
