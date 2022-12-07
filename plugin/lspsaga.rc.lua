@@ -10,7 +10,7 @@ saga.init_lsp_saga {
         open = '<CR>',
         vsplit = '<C-v>',
         split = 'i',
-        tabe = 't',
+        tabe = '<C-t>',
         quit = { 'q', '<ESC>' },
     },
 }
