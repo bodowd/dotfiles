@@ -26,5 +26,5 @@ vim.keymap.set('n', 'rn', '<Cmd>Lspsaga rename<CR>', opts)
 -- when renaming across files, it will open it in buffers. Use :wa to save across all buffers
 -- %bd|e# will close the open buffers where the renamed files are
 vim.api.nvim_create_user_command('Wa', 'wa|%bd|e#', { nargs = 0 })
--- vim.keymap.set('n', '~', '<Cmd>Lspsaga open_floaterm<CR>', opts)
--- vim.keymap.set('t', '~', '<Cmd>Lspsaga close_floaterm<CR>', opts)
+vim.keymap.set('n', '~', '<Cmd>Lspsaga open_floaterm<CR>', opts)
+vim.keymap.set('t', '~', '<Cmd>Lspsaga close_floaterm<CR>', opts)
