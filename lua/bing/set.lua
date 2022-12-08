@@ -68,5 +68,5 @@ vim.cmd("nnoremap L :tabnext<CR>")
 vim.cmd("tnoremap  <Esc> <C-\\><C-n>")
 -- open terminal in new tab
 vim.keymap.set('n', '~', '<Cmd>tabnew | term<CR>')
--- close terminal when in terminal mode
-vim.keymap.set('t', '~', '<Cmd>q<CR>')
+-- close terminal when in terminal mode and close the buffer
+vim.keymap.set('t', '~', '<Cmd>bd!<CR>')
