@@ -1,7 +1,8 @@
 local status, cmp = pcall(require, "cmp")
 if (not status) then return end
 
---local lspkind = require 'lspkind'
+local lspkind = require 'lspkind'
+
 cmp.setup({
     snippet = {
         expand = function(args)
@@ -20,9 +21,9 @@ cmp.setup({
         { name = 'nvim_lsp' },
         { name = 'buffer' },
     }),
-    --formatting = {
-    --   format = lspkind.cmp_format({ with_text = false, maxwidth = 50 })
-    --}
+    formatting = {
+        format = lspkind.cmp_format({ with_text = true, maxwidth = 50 })
+    }
 })
 
 vim.cmd [[

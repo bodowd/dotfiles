@@ -38,6 +38,7 @@ return require('packer').startup(function(use)
     use 'nvim-telescope/telescope.nvim'
     use 'nvim-telescope/telescope-file-browser.nvim'
     use 'kyazdani42/nvim-web-devicons' -- File icons for telescope browswer
+    use 'onsails/lspkind-nvim' -- VSCode like pictograms
 
     use 'lewis6991/gitsigns.nvim'
     use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install",
