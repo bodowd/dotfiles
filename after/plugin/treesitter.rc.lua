@@ -21,6 +21,8 @@ ts.setup {
         "html",
         "lua",
         "python",
+        "go",
+        "hcl",
         "c"
 
     },
