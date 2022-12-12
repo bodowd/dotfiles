@@ -11,6 +11,7 @@ ts.setup {
         -- not working for python with tree sitter, so turn it off
         disable = { 'python' },
     },
+    -- https://github.com/nvim-treesitter/nvim-treesitter#supported-languages
     ensure_installed = {
         "typescript",
         "tsx",
@@ -23,8 +24,8 @@ ts.setup {
         "python",
         "go",
         "hcl",
-        "c"
-
+        "c",
+        "markdown"
     },
     autotag = {
         enable = true,
