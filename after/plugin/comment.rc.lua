@@ -1,6 +1,15 @@
 local present, comment = pcall(require, "Comment")
 if not present then return end
 
+local osname = vim.loop.os_uname().sysname
+local comment_cmd
+if osname == "Darwin" then
+    comment_cmd = "<C-/>"
+end
+if osname == "Linux" then
+    comment_cmd = "<C-_>"
+end
+
 comment.setup(
     {
         ---Add a space b/w comment and the line
@@ -12,14 +21,14 @@ comment.setup(
         ---LHS of toggle mappings in NORMAL mode
         toggler = {
             ---Line-comment toggle keymap
-            line = '<C-_>',
+            line = comment_cmd,
             ---Block-comment toggle keymap
             block = 'gb',
         },
         ---LHS of operator-pending mappings in NORMAL and VISUAL mode
         opleader = {
             ---Line-comment keymap
-            line = '<C-_>',
+            line = comment_cmd,
             ---Block-comment keymap
             block = 'gb',
         },
