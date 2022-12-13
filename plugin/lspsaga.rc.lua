@@ -9,7 +9,7 @@ saga.init_lsp_saga {
     finder_action_keys = {
         open = '<CR>',
         vsplit = '<C-v>',
-        split = 'i',
+        split = '<C-s>',
         tabe = '<C-t>',
         quit = { 'q', '<ESC>' },
     },

@@ -12,8 +12,8 @@ telescope.setup {
                 ["<C-c>"] = actions.close
             },
             n = {
-                ["<C-c>"] = actions.close
-
+                ["<C-c>"] = actions.close,
+                ["<C-s>"] = actions.select_horizontal
             }
         }
     },
