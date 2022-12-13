@@ -13,6 +13,9 @@ saga.init_lsp_saga {
         tabe = '<C-t>',
         quit = { 'q', '<ESC>' },
     },
+
+    -- note: <C-f> and <C-b> lets you scroll inside a floating window
+    -- like when you are in hover_doc
 }
 
 
