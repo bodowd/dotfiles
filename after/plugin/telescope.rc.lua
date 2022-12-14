@@ -25,6 +25,8 @@ telescope.setup {
     },
     extensions = {
         file_browser = {
+            cwd_to_path = true,
+            path = "%:p:h",
             hidden = true,
             hide_parent_dir = true,
             initial_mode = "normal",
