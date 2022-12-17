@@ -70,3 +70,22 @@ vim.cmd("tnoremap  <Esc> <C-\\><C-n>")
 vim.keymap.set('n', '~', '<Cmd>tabnew | term<CR>')
 -- close terminal when in terminal mode and close the buffer
 vim.keymap.set('t', '~', '<Cmd>bd!<CR>')
+
+
+-- move highlighted lines up and down
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+-- keep cursor in place when moving the page
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+-- keep cursor in the middle when searching. n to search down, N to search up
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+
+-- after pasting over a word, keep the originally copied word in the clipboard
+vim.keymap.set("x", "<leader>p", "\"_dP")
+
+-- rename the word that cursor is on in the whole file
+vim.keymap.set("n", "<leader>rn", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
