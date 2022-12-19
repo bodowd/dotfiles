@@ -41,8 +41,6 @@ return require('packer').startup(function(use)
 
     use 'jose-elias-alvarez/null-ls.nvim' -- Use nvim as a language server to inject LSP diagnostics, code actions, and more via Lua
 
-    use 'glepnir/lspsaga.nvim'
-
     use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
