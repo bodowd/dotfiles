@@ -21,4 +21,15 @@ end
 -- %bd|e# will close the open buffers where the renamed files are
 vim.api.nvim_create_user_command('Wa', 'wa|%bd|e#', { nargs = 0 })
 
+
+-- show the diagnostic without having to hover over it
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics, {
+    underline = true,
+    update_in_insert = false,
+    virtual_text = { spacing = 4, prefix = "●" },
+    severity_sort = true,
+}
+)
+
 lsp.setup()
