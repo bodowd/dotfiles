@@ -7,6 +7,7 @@ local fb_actions = require "telescope".extensions.file_browser.actions
 
 telescope.setup {
     defaults = {
+        initial_mode="normal",
         mappings = {
             i = {
                 ["<C-c>"] = actions.close
@@ -18,10 +19,19 @@ telescope.setup {
         }
     },
     pickers = {
-        live_grep = { additional_args = function(opts) return { "--hidden" } end },
+        live_grep = { additional_args = function(opts) return { "--hidden" } end ,
+            initial_mode="insert"
+        },
         find_files = {
-            find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/**" }
-        }
+            find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/**" },
+            initial_mode="insert"
+        },
+        -- lsp_references = {
+        --     theme="ivy"
+        -- },
+        -- lsp_definitions = {
+        --     theme="ivy"
+        -- }
     },
     extensions = {
         file_browser = {
@@ -55,13 +65,16 @@ telescope.setup {
 }
 
 telescope.load_extension("file_browser")
+-- open telescope file browswer
+vim.keymap.set('n', '<C-b>', ':Telescope file_browser<Return>')
 
 vim.keymap.set('n', '<C-f>', builtin.find_files, {})
 vim.keymap.set('n', '<C-g>', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-vim.keymap.set('n', 'gr', '<Cmd>Telescope lsp_references<CR>')
-vim.keymap.set('n', 'gd', '<Cmd>Telescope lsp_definitions<CR>')
+vim.keymap.set('n', 'gr', '<Cmd>lua require "telescope.builtin".lsp_references{jump_type="never"}<CR>')
+vim.keymap.set('n', 'gd', '<Cmd>lua require "telescope.builtin".lsp_definitions{jump_type="never"}<CR>')
 vim.keymap.set('n', 'gi', '<Cmd>Telescope lsp_implementations<CR>')
+vim.keymap.set('n', 'gt', '<Cmd>lua require "telescope.builtin".lsp_type_definitions{jump_type="never"}<CR>')
 vim.keymap.set('n', '<leader>ds', '<Cmd> Telescope lsp_document_symbols<CR>')
 vim.keymap.set('n', '<leader>ts', '<Cmd> Telescope treesitter<CR>')
