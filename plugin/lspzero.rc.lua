@@ -3,11 +3,30 @@ local lsp = require('lsp-zero')
 lsp.preset('recommended')
 
 lsp.set_preferences({
-    set_lsp_keymaps=false
+    set_lsp_keymaps = false
 })
 
+-- Fix Undefined global 'vim'
+lsp.configure('sumneko_lua', {
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            }
+        }
+    }
+})
+
+-- sumneko_lua not available in null-ls,
+-- so, to format on save for lua, run
+-- lua vim.lsp.buf.format()
+-- to use this command, ":F" in normal mode
+vim.api.nvim_create_user_command('F', 'lua vim.lsp.buf.format()', { nargs = 0 })
+
+
+
 lsp.on_attach(function(client, bufnr)
-local opts = {buffer = bufnr, remap=false}
+    local opts = { buffer = bufnr, remap = false }
     local bind = vim.keymap.set
     bind("n", "rn", function() vim.lsp.buf.rename() end, opts)
     bind("n", "K", function() vim.lsp.buf.hover() end, opts)
