@@ -8,6 +8,7 @@ local fb_actions = require "telescope".extensions.file_browser.actions
 telescope.setup {
     defaults = {
         initial_mode="normal",
+        layout_strategy="vertical",
         mappings = {
             i = {
                 ["<C-c>"] = actions.close
@@ -26,12 +27,6 @@ telescope.setup {
             find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/**" },
             initial_mode="insert"
         },
-        -- lsp_references = {
-        --     theme="ivy"
-        -- },
-        -- lsp_definitions = {
-        --     theme="ivy"
-        -- }
     },
     extensions = {
         file_browser = {
