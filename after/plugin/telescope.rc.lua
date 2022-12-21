@@ -8,7 +8,7 @@ local fb_actions = require "telescope".extensions.file_browser.actions
 telescope.setup {
     defaults = {
         initial_mode="normal",
-        layout_strategy="vertical",
+        -- layout_strategy="vertical",
         mappings = {
             i = {
                 ["<C-c>"] = actions.close
