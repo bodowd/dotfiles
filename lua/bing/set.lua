@@ -48,6 +48,8 @@ vim.opt.wildignore:append { '*/node_modules/*' }
 -- allow to paste with 'p' what you have copied to keyboard
 vim.opt.clipboard:append { 'unnamedplus' }
 
+vim.api.nvim_command('set cursorline')
+
 -- stop automatic newline continuation of comments
 vim.cmd("autocmd BufEnter * set formatoptions-=cro")
 vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
