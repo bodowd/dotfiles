@@ -22,14 +22,6 @@ vim.cmd("nnoremap <leader>4 4gt")
 vim.cmd("nnoremap H :tabprevious<CR>")
 vim.cmd("nnoremap L :tabnext<CR>")
 
--- exit terminal editing mode to get to vim normal mode
-vim.cmd("tnoremap  <Esc> <C-\\><C-n>")
--- open terminal in new tab
-keymap.set('n', '~', '<Cmd>tabnew | term<CR>')
--- close terminal when in terminal mode and close the buffer
-keymap.set('t', '~', '<Cmd>bd!<CR>')
-
-
 -- move highlighted lines up and down
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")

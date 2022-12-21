@@ -58,4 +58,5 @@ return require('packer').startup(function(use)
         setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 
     use 'numToStr/Comment.nvim'
+    use 'numToStr/FTerm.nvim'
 end)
