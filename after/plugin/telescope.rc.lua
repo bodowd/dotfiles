@@ -8,7 +8,7 @@ local fb_actions = require "telescope".extensions.file_browser.actions
 telescope.setup {
     defaults = {
         initial_mode="normal",
-        -- layout_strategy="vertical",
+        layout_strategy="flex",
         mappings = {
             i = {
                 ["<C-c>"] = actions.close
@@ -35,7 +35,7 @@ telescope.setup {
             hidden = true,
             hide_parent_dir = true,
             initial_mode = "normal",
-            layout_strategy="horizontal",
+            layout_strategy="flex",
             -- disables netrw and use telescope-file-browser in its place
             hijack_netrw = true,
             mappings = {
