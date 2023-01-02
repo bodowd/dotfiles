@@ -21,14 +21,14 @@ comment.setup(
         ---LHS of toggle mappings in NORMAL mode
         toggler = {
             ---Line-comment toggle keymap
-            line = comment_cmd,
+            line = 'gcc',
             ---Block-comment toggle keymap
-            block = 'gb',
+            block = 'gbc',
         },
         ---LHS of operator-pending mappings in NORMAL and VISUAL mode
         opleader = {
             ---Line-comment keymap
-            line = comment_cmd,
+            line = 'gc',
             ---Block-comment keymap
             block = 'gb',
         },
