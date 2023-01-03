@@ -54,3 +54,8 @@ vim.api.nvim_command('set cursorline')
 vim.cmd("autocmd BufEnter * set formatoptions-=cro")
 vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
 
+
+-- autoreload the file in the buffer if it's changed outside of vim
+vim.cmd("set autoread")
+vim.cmd("autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif")
+vim.cmd("autocmd FileChangedShellPost *  echohl WarningMsg | echo 'File changed on disk. Buffer reloaded.' | echohl None")
