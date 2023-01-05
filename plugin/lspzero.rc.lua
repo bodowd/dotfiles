@@ -20,8 +20,8 @@ lsp.configure('sumneko_lua', {
 -- sumneko_lua not available in null-ls,
 -- so, to format on save for lua, run
 -- lua vim.lsp.buf.format()
--- to use this command, ":F" in normal mode
-vim.api.nvim_create_user_command('F', 'lua vim.lsp.buf.format()', { nargs = 0 })
+-- to use this command, ":FormatLua" in normal mode
+vim.api.nvim_create_user_command('FormatLua', 'lua vim.lsp.buf.format()', { nargs = 0 })
 
 
 
