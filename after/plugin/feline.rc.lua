@@ -187,6 +187,12 @@ local c = {
             style = "bold",
         },
     },
+    inactive_bar = {
+        provider = "",
+        hl = {
+            style="bold"
+        }
+    }
 }
 
 local left = {
@@ -215,6 +221,11 @@ local right = {
     c.scroll_bar,
 }
 
+local inactivecomponent = {
+    c.inactive_bar
+}
+
+
 local components = {
     active = {
         left,
@@ -222,9 +233,9 @@ local components = {
         right,
     },
     inactive = {
-        left,
-        middle,
-        right,
+        inactivecomponent,
+        inactivecomponent,
+        inactivecomponent
     },
 }
 
