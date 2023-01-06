@@ -40,3 +40,4 @@ keymap.set("x", "<leader>p", "\"_dP")
 -- rename the word that cursor is on in the whole file
 keymap.set("n", "<leader>rn", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 
+keymap.set("v", "y", '"+y')
