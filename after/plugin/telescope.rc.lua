@@ -27,6 +27,9 @@ telescope.setup {
             find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/**" },
             initial_mode="insert"
         },
+        current_buffer_fuzzy_find = {
+            initial_mode="insert"
+        }
     },
     extensions = {
         file_browser = {
@@ -75,3 +78,4 @@ vim.keymap.set('n', '<leader>ds', builtin.lsp_document_symbols, {})
 vim.keymap.set('n', '<leader>ts', builtin.treesitter, {})
 vim.keymap.set('n', '<leader>sd', builtin.diagnostics, {})
 vim.keymap.set('n', '<leader>gs', builtin.git_status, {})
+vim.keymap.set('n', '<leader>/', builtin.current_buffer_fuzzy_find, {})
