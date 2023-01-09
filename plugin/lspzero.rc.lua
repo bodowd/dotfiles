@@ -3,7 +3,13 @@ local lsp = require('lsp-zero')
 lsp.preset('recommended')
 
 lsp.set_preferences({
-    set_lsp_keymaps = false
+    set_lsp_keymaps = false,
+    sign_icons = {
+        error = 'E',
+        warn = 'W',
+        hint = 'H',
+        info = 'I'
+    }
 })
 
 -- Fix Undefined global 'vim'
