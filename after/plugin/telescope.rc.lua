@@ -7,8 +7,9 @@ local fb_actions = require "telescope".extensions.file_browser.actions
 
 telescope.setup {
     defaults = {
-        initial_mode="normal",
-        layout_strategy="flex",
+        file_ignore_patterns = {"node%_modules/.*"},
+        initial_mode = "normal",
+        layout_strategy = "flex",
         mappings = {
             i = {
                 ["<C-c>"] = actions.close
@@ -20,15 +21,15 @@ telescope.setup {
         }
     },
     pickers = {
-        live_grep = { additional_args = function(opts) return { "--hidden" } end ,
-            initial_mode="insert"
+        live_grep = { additional_args = function(opts) return { "--hidden" } end,
+            initial_mode = "insert"
         },
         find_files = {
             find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/**" },
-            initial_mode="insert"
+            initial_mode = "insert"
         },
         current_buffer_fuzzy_find = {
-            initial_mode="insert"
+            initial_mode = "insert"
         }
     },
     extensions = {
@@ -38,7 +39,7 @@ telescope.setup {
             hidden = true,
             hide_parent_dir = true,
             initial_mode = "normal",
-            layout_strategy="flex",
+            layout_strategy = "flex",
             -- disables netrw and use telescope-file-browser in its place
             hijack_netrw = true,
             mappings = {
@@ -63,6 +64,7 @@ telescope.setup {
 }
 
 telescope.load_extension("file_browser")
+telescope.load_extension("harpoon")
 -- open telescope file browswer
 vim.keymap.set('n', '<C-b>', ':Telescope file_browser<Return>')
 
@@ -79,3 +81,7 @@ vim.keymap.set('n', '<leader>ts', builtin.treesitter, {})
 vim.keymap.set('n', '<leader>sd', builtin.diagnostics, {})
 vim.keymap.set('n', '<leader>gs', builtin.git_status, {})
 vim.keymap.set('n', '<leader>/', builtin.current_buffer_fuzzy_find, {})
+
+-- harpoon keymaps
+vim.api.nvim_create_user_command('HM', 'lua require("harpoon.mark").add_file()', { nargs = 0 })
+vim.keymap.set('n', '<leader>h', '<Cmd>Telescope harpoon marks<CR>')
