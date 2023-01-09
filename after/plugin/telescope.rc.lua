@@ -29,6 +29,9 @@ telescope.setup {
         },
         current_buffer_fuzzy_find = {
             initial_mode = "insert"
+        },
+        help_tags = {
+            initial_mode="insert"
         }
     },
     extensions = {
@@ -82,5 +85,10 @@ vim.keymap.set('n', '<leader>gs', builtin.git_status, {})
 vim.keymap.set('n', '<leader>/', builtin.current_buffer_fuzzy_find, {})
 
 -- harpoon keymaps
-vim.api.nvim_create_user_command('HM', 'lua require("harpoon.mark").add_file()', { nargs = 0 })
+vim.api.nvim_create_user_command('HM', 
+function ()
+    require('harpoon.mark').add_file()
+    print(vim.fn.printf("Added to harpoon"))
+end
+, { nargs = 0 })
 vim.keymap.set('n', '<leader>h', '<Cmd>Telescope harpoon marks<CR>')
