@@ -29,15 +29,12 @@ lsp.configure('sumneko_lua', {
 -- to use this command, ":FormatLua" in normal mode
 vim.api.nvim_create_user_command('FormatLua', 'lua vim.lsp.buf.format()', { nargs = 0 })
 
-
-
 lsp.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
     local bind = vim.keymap.set
     bind("n", "rn", function() vim.lsp.buf.rename() end, opts)
     bind("n", "K", function() vim.lsp.buf.hover() end, opts)
-    bind("n", "<C-j>", function() vim.diagnostic.goto_next() end, opts)
-    bind("n", "<C-k>", function() vim.diagnostic.goto_prev() end, opts)
+    bind("n", "<C-k>", function() vim.diagnostic.open_float() end, opts)
     bind("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
 end
 )
