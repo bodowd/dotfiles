@@ -65,10 +65,10 @@ telescope.setup {
     },
 }
 
-telescope.load_extension("file_browser")
+-- telescope.load_extension("file_browser")
 telescope.load_extension("harpoon")
 -- open telescope file browswer
-vim.keymap.set('n', '<C-b>', ':Telescope file_browser<Return>')
+-- vim.keymap.set('n', '<C-b>', ':Telescope file_browser<Return>')
 
 vim.keymap.set('n', '<C-f>', builtin.find_files, {})
 vim.keymap.set('n', '<C-g>', builtin.live_grep, {})
@@ -85,7 +85,7 @@ vim.keymap.set('n', '<leader>gs', builtin.git_status, {})
 vim.keymap.set('n', '<leader>/', builtin.current_buffer_fuzzy_find, {})
 
 -- harpoon keymaps
-vim.api.nvim_create_user_command('HM', 
+vim.api.nvim_create_user_command('HM',
 function ()
     require('harpoon.mark').add_file()
     print(vim.fn.printf("Added to harpoon"))
