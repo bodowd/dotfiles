@@ -30,6 +30,15 @@ ts.setup {
     autotag = {
         enable = true,
     },
+    incremental_selection = {
+        enable = true,
+        keymaps = {
+            init_selection = "<CR>",
+            node_incremental = "<CR>",
+            scope_incremental = "<S-CR>",
+            node_decremental = "<BS>",
+        },
+    },
 }
 
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
