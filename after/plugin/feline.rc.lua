@@ -190,7 +190,8 @@ local c = {
     inactive_bar = {
         provider = "",
         hl = {
-            style="bold"
+            bg = "NONE",
+            style = "underline"
         }
     }
 }
@@ -233,14 +234,17 @@ local components = {
         right,
     },
     inactive = {
-        inactivecomponent,
-        inactivecomponent,
         inactivecomponent
     },
 }
 
 feline.setup({
     components = components,
-    theme = tokyonight,
+    theme = tokyonight, disable = {
+        filetypes = {
+            '^NvimTree'
+        },
+        buftypes = { '^terminal$' }
+    },
     vi_mode_colors = vi_mode_colors,
 })
