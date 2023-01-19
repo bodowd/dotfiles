@@ -188,7 +188,12 @@ local c = {
         },
     },
     inactive_bar = {
-        provider = "",
+        -- provider = {
+        --     name = "file_info",
+        --     opts = {
+        --         type = "relative",
+        --     },
+        -- },
         hl = {
             bg = "NONE",
             style = "underline"
@@ -240,11 +245,18 @@ local components = {
 
 feline.setup({
     components = components,
-    theme = tokyonight, disable = {
+    theme = tokyonight,
+    disable = {
         filetypes = {
-            '^NvimTree'
+            '^NvimTree$',
         },
         buftypes = { '^terminal$' }
     },
+    force_inactive = {
+        filetypes = {
+            '^help$'
+        },
+    },
+
     vi_mode_colors = vi_mode_colors,
 })
