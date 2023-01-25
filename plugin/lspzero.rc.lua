@@ -35,6 +35,8 @@ lsp.on_attach(function(client, bufnr)
     bind("n", "rn", function() vim.lsp.buf.rename() end, opts)
     bind("n", "K", function() vim.lsp.buf.hover() end, opts)
     bind("n", "<C-k>", function() vim.diagnostic.open_float() end, opts)
+    bind("n", "]d", function() vim.diagnostic.goto_next() end, opts)
+    bind("n", "[d", function() vim.diagnostic.goto_prev() end, opts)
     bind("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
 end
 )
