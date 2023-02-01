@@ -7,11 +7,7 @@ return require('packer').startup(function(use)
 
     -- colorthemes
     use 'folke/tokyonight.nvim'
-    -- use 'tjdevries/colorbuddy.nvim'
-    --    use {
-    --        'svrana/neosolarized.nvim',
-    --        requires = { 'tjdevries/colorbuddy.nvim' }
-    --    }
+    use 'Mofiqul/vscode.nvim'
 
     use 'feline-nvim/feline.nvim' -- Status line
 
