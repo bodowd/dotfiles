@@ -16,15 +16,19 @@ require("nvim-tree").setup({
         mappings = {
             list = {
                 { key = "<C-s>", action = "split" },
-                { key="N", action="create"}
+                { key = "N", action = "create" }
             },
         },
     },
     renderer = {
         group_empty = true,
     },
+    git = {
+        enable = true,
+        ignore = false
+    },
     filters = {
-        dotfiles = true,
+        dotfiles = false,
     },
     update_focused_file = {
         enable = true
