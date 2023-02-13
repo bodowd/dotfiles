@@ -2,71 +2,78 @@
 --vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-    -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
+        -- Packer can manage itself
+        use 'wbthomason/packer.nvim'
 
-    -- colorthemes
-    use 'folke/tokyonight.nvim'
-    -- use 'tjdevries/colorbuddy.nvim'
-    --    use {
-    --        'svrana/neosolarized.nvim',
-    --        requires = { 'tjdevries/colorbuddy.nvim' }
-    --    }
+        -- colorthemes
+        use 'folke/tokyonight.nvim'
+        -- use 'tjdevries/colorbuddy.nvim'
+        --    use {
+        --        'svrana/neosolarized.nvim',
+        --        requires = { 'tjdevries/colorbuddy.nvim' }
+        --    }
 
-    use 'feline-nvim/feline.nvim' -- Status line
-
-    use 'nvim-lua/plenary.nvim' -- Common utilities
-
-    use {
-        'VonHeikemen/lsp-zero.nvim',
-        requires = {
-            -- LSP Support
-            { 'neovim/nvim-lspconfig' },
-            { 'williamboman/mason.nvim' },
-            { 'williamboman/mason-lspconfig.nvim' },
-
-            -- Autocompletion
-            { 'hrsh7th/nvim-cmp' },
-            { 'hrsh7th/cmp-buffer' },
-            { 'hrsh7th/cmp-path' },
-            { 'saadparwaiz1/cmp_luasnip' },
-            { 'hrsh7th/cmp-nvim-lsp' },
-            { 'hrsh7th/cmp-nvim-lua' },
-
-            -- Snippets
-            { 'L3MON4D3/LuaSnip' },
-            { 'rafamadriz/friendly-snippets' },
+        -- use 'feline-nvim/feline.nvim' -- Status line
+        use {
+            'nvim-lualine/lualine.nvim',
+            requires = { 'kyazdani42/nvim-web-devicons', opt = true }
         }
-    }
+        use 'nvim-lua/plenary.nvim' -- Common utilities
 
-    use 'jose-elias-alvarez/null-ls.nvim' -- Use nvim as a language server to inject LSP diagnostics, code actions, and more via Lua
+        use {
+            'VonHeikemen/lsp-zero.nvim',
+            requires = {
+                -- LSP Support
+                { 'neovim/nvim-lspconfig' },
+                { 'williamboman/mason.nvim' },
+                { 'williamboman/mason-lspconfig.nvim' },
 
-    use {
-        'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
-    }
-    use 'windwp/nvim-autopairs'
-    use 'windwp/nvim-ts-autotag'
+                -- Autocompletion
+                { 'hrsh7th/nvim-cmp' },
+                { 'hrsh7th/cmp-buffer' },
+                { 'hrsh7th/cmp-path' },
+                { 'saadparwaiz1/cmp_luasnip' },
+                { 'hrsh7th/cmp-nvim-lsp' },
+                { 'hrsh7th/cmp-nvim-lua' },
 
-    use 'nvim-telescope/telescope.nvim'
-    use 'nvim-telescope/telescope-file-browser.nvim'
-    use {
-        'nvim-tree/nvim-tree.lua',
-        requires = {
-            'nvim-tree/nvim-web-devicons', -- optional, for file icons
-        },
-        tag = 'nightly' -- optional, updated every week. (see issue #1193)
-    }
+                -- Snippets
+                { 'L3MON4D3/LuaSnip' },
+                { 'rafamadriz/friendly-snippets' },
+            }
+        }
 
-    use 'ThePrimeagen/harpoon'
+        use 'jose-elias-alvarez/null-ls.nvim' -- Use nvim as a language server to inject LSP diagnostics, code actions, and more via Lua
 
-    use 'kyazdani42/nvim-web-devicons' -- File icons for telescope browswer
-    use 'onsails/lspkind-nvim' -- VSCode like pictograms
+        use {
+            'nvim-treesitter/nvim-treesitter',
+            run = ':TSUpdate'
+        }
+        use 'windwp/nvim-autopairs'
+        use 'windwp/nvim-ts-autotag'
 
-    use 'lewis6991/gitsigns.nvim'
-    use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install",
-        setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+        use 'nvim-telescope/telescope.nvim'
+        use 'nvim-telescope/telescope-file-browser.nvim'
+        use {
+            'nvim-tree/nvim-tree.lua',
+            requires = {
+                'nvim-tree/nvim-web-devicons', -- optional, for file icons
+            },
+            tag = 'nightly' -- optional, updated every week. (see issue #1193)
+        }
 
-    use 'numToStr/Comment.nvim'
-    use { "akinsho/toggleterm.nvim", tag = '*' }
-end)
+        use 'ThePrimeagen/harpoon'
+
+        use 'kyazdani42/nvim-web-devicons' -- File icons for telescope browswer
+        use 'onsails/lspkind-nvim' -- VSCode like pictograms
+
+        use 'lewis6991/gitsigns.nvim'
+        use({
+            "iamcco/markdown-preview.nvim",
+            run = "cd app && npm install",
+            setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
+            ft = { "markdown" },
+        })
+
+        use 'numToStr/Comment.nvim'
+        use { "akinsho/toggleterm.nvim", tag = '*' }
+    end)
