@@ -13,8 +13,10 @@ return require('packer').startup(function(use)
     --        requires = { 'tjdevries/colorbuddy.nvim' }
     --    }
 
-    use 'feline-nvim/feline.nvim' -- Status line
-
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
     use 'nvim-lua/plenary.nvim' -- Common utilities
 
     use {
@@ -57,15 +59,18 @@ return require('packer').startup(function(use)
         },
         tag = 'nightly' -- optional, updated every week. (see issue #1193)
     }
+    use 'lewis6991/gitsigns.nvim'
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = "cd app && npm install",
+        setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
+        ft = { "markdown" },
+    })
 
     use 'ThePrimeagen/harpoon'
 
     use 'kyazdani42/nvim-web-devicons' -- File icons for telescope browswer
     use 'onsails/lspkind-nvim' -- VSCode like pictograms
-
-    use 'lewis6991/gitsigns.nvim'
-    use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install",
-        setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 
     use 'numToStr/Comment.nvim'
     use { "akinsho/toggleterm.nvim", tag = '*' }
