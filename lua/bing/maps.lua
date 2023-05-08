@@ -41,3 +41,7 @@ keymap.set("x", "<leader>p", "\"_dP")
 keymap.set("n", "<leader>rn", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 
 keymap.set("v", "y", '"+y')
+
+-- stay in visual mode after shift
+vim.cmd("vnoremap > >gv")
+vim.cmd("vnoremap < <gv")
