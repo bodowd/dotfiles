@@ -43,7 +43,7 @@ end
 
 -- when renaming across files, it will open it in buffers. Use :wa to save across all buffers
 -- %bd|e# will close the open buffers where the renamed files are
-vim.api.nvim_create_user_command('Wa', 'wa|%bd|e#', { nargs = 0 })
+vim.api.nvim_create_user_command('SaveAndDeleteBuffers', 'wa|%bd|e#', { nargs = 0 })
 
 
 -- show the diagnostic without having to hover over it
