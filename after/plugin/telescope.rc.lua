@@ -46,7 +46,6 @@ vim.keymap.set('n', 'gd', '<Cmd>lua require "telescope.builtin".lsp_definitions{
 vim.keymap.set('n', 'gi', builtin.lsp_implementations, {})
 vim.keymap.set('n', 'gt', '<Cmd>lua require "telescope.builtin".lsp_type_definitions{jump_type="never"}<CR>')
 vim.keymap.set('n', '<leader>ds', builtin.lsp_document_symbols, {})
-vim.keymap.set('n', '<leader>ts', builtin.treesitter, {})
 vim.keymap.set('n', '<leader>sd', builtin.diagnostics, {})
 vim.keymap.set('n', '<leader>gs', builtin.git_status, {})
 vim.keymap.set('n', '<leader>/', builtin.current_buffer_fuzzy_find, {})
