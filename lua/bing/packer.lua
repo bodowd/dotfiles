@@ -57,7 +57,7 @@ return require('packer').startup(function(use)
         requires = {
             'nvim-tree/nvim-web-devicons', -- optional, for file icons
         },
-        tag = 'nightly' -- optional, updated every week. (see issue #1193)
+        tag = 'nightly'                    -- optional, updated every week. (see issue #1193)
     }
     use 'lewis6991/gitsigns.nvim'
     use({
@@ -70,7 +70,7 @@ return require('packer').startup(function(use)
     use 'ThePrimeagen/harpoon'
 
     use 'kyazdani42/nvim-web-devicons' -- File icons for telescope browswer
-    use 'onsails/lspkind-nvim' -- VSCode like pictograms
+    use 'onsails/lspkind-nvim'         -- VSCode like pictograms
 
     use 'numToStr/Comment.nvim'
     use { "akinsho/toggleterm.nvim", tag = '*' }
