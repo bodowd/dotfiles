@@ -25,6 +25,7 @@ ts.setup {
         "go",
         "hcl",
         "c",
+        "cpp",
         "markdown"
     },
     autotag = {
