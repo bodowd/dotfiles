@@ -8,6 +8,7 @@ gitsigns.setup {
         -- end
         local opts = {buffer=bufnr}
         vim.keymap.set('n', '<leader>gh', gs.preview_hunk, opts)
+        vim.keymap.set('n', '<leader>nh', gs.next_hunk, opts)
 
     end
 }
