@@ -68,5 +68,4 @@ return require('packer').startup(function(use)
     use 'onsails/lspkind-nvim'         -- VSCode like pictograms
 
     use 'numToStr/Comment.nvim'
-    use { "akinsho/toggleterm.nvim", tag = '*' }
 end)
