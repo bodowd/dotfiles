@@ -68,4 +68,6 @@ return require('packer').startup(function(use)
     use 'onsails/lspkind-nvim'         -- VSCode like pictograms
 
     use 'numToStr/Comment.nvim'
+
+    use "folke/todo-comments.nvim"
 end)
