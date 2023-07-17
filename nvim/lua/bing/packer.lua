@@ -69,5 +69,6 @@ return require('packer').startup(function(use)
 
     use 'numToStr/Comment.nvim'
 
-    use "folke/todo-comments.nvim"
+    use 'folke/todo-comments.nvim'
+    use 'HiPhish/rainbow-delimiters.nvim'
 end)
