@@ -48,3 +48,12 @@ vim.api.nvim_create_user_command(
     end,
     { nargs = 0 }
 )
+
+local notify = vim.notify
+vim.notify = function(msg, ...)
+    if msg:match("warning: multiple different client offset_encodings") then
+        return
+    end
+
+    notify(msg, ...)
+end
