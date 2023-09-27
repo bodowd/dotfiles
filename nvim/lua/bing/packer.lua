@@ -46,7 +46,6 @@ return require('packer').startup(function(use)
     use 'windwp/nvim-ts-autotag'
 
     use 'nvim-telescope/telescope.nvim'
-    use 'nvim-telescope/telescope-file-browser.nvim'
     use {
         'nvim-tree/nvim-tree.lua',
         requires = {
