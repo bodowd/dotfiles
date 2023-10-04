@@ -1,5 +1,5 @@
 vim.opt.winblend = 0
-vim.opt.wildoptions = 'pum'
+vim.opt.wildoptions = "pum"
 vim.opt.pumblend = 5
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -43,19 +43,20 @@ vim.opt.colorcolumn = "80"
 
 vim.g.mapleader = " "
 
-vim.opt.wildignore:append { '*/node_modules/*' }
+vim.opt.wildignore:append({ "*/node_modules/*" })
 
 -- allow to paste with 'p' what you have copied to keyboard
-vim.opt.clipboard:append { 'unnamedplus' }
+vim.opt.clipboard:append({ "unnamedplus" })
 
-vim.api.nvim_command('set cursorline')
+vim.api.nvim_command("set cursorline")
 
 -- stop automatic newline continuation of comments
 vim.cmd("autocmd BufEnter * set formatoptions-=cro")
 vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
 
-
 -- autoreload the file in the buffer if it's changed outside of vim
 vim.cmd("set autoread")
 vim.cmd("autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif")
-vim.cmd("autocmd FileChangedShellPost *  echohl WarningMsg | echo 'File changed on disk. Buffer reloaded.' | echohl None")
+vim.cmd(
+	"autocmd FileChangedShellPost *  echohl WarningMsg | echo 'File changed on disk. Buffer reloaded.' | echohl None"
+)

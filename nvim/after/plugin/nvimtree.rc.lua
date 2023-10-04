@@ -7,33 +7,31 @@ vim.g.loaded_netrwPlugin = 1
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 
-
 -- OR setup with some options
 require("nvim-tree").setup({
-    sort_by = "case_sensitive",
-    view = {
-        adaptive_size = true,
-        mappings = {
-            list = {
-                { key = "<C-s>", action = "split" },
-                { key = "N", action = "create" }
-            },
-        },
-    },
-    renderer = {
-        group_empty = true,
-    },
-    git = {
-        enable = true,
-        ignore = false
-    },
-    filters = {
-        dotfiles = false,
-    },
-    update_focused_file = {
-        enable = true
-    },
+	sort_by = "case_sensitive",
+	view = {
+		adaptive_size = true,
+		mappings = {
+			list = {
+				{ key = "<C-s>", action = "split" },
+				{ key = "N", action = "create" },
+			},
+		},
+	},
+	renderer = {
+		group_empty = true,
+	},
+	git = {
+		enable = true,
+		ignore = false,
+	},
+	filters = {
+		dotfiles = false,
+	},
+	update_focused_file = {
+		enable = true,
+	},
 })
-
 
 vim.keymap.set("n", "<leader>t", "<Cmd>NvimTreeToggle<CR>")
