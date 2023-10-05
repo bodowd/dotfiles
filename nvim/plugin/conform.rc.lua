@@ -11,9 +11,16 @@ require("conform").setup({
 		cpp = { "clang_format" },
 		python = { "black" },
 	},
-	format_on_save = {
-		async = false,
-		timeout_ms = 500,
-		lsp_fallback = true,
-	},
+	format_on_save = function(bufnr)
+		-- Disable autoformat on certain filetypes
+		local ignore_filetypes = { "prisma" }
+		if vim.tbl_contains(ignore_filetypes, vim.bo[bufnr].filetype) then
+			return
+		end
+		return {
+			async = false,
+			timeout_ms = 500,
+			lsp_fallback = true,
+		}
+	end,
 })
