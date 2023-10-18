@@ -1,12 +1,12 @@
 require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
-		typescript = { { "prettierd", "prettier" } },
-		javascript = { { "prettierd", "prettier" } },
-		html = { { "prettierd", "prettier" } },
-		css = { { "prettierd", "prettier" } },
-		markdown = { { "prettierd", "prettier" } },
-		graphql = { { "prettierd", "prettier" } },
+		typescript = { "prettier" },
+		javascript = { "prettier" },
+		html = { "prettier" },
+		css = { "prettier" },
+		markdown = { "prettier" },
+		graphql = { "prettier" },
 		c = { "clang_format" },
 		cpp = { "clang_format" },
 		python = { "black" },
