@@ -1,7 +1,6 @@
 {
   "version": 1,
-  "notes": "",
-  "documentation": "\"This file is a QMK Configurator export. You can import this at <https://config.qmk.fm>. It can also be used directly with QMK's source code.\n\nTo setup your QMK environment check out the tutorial: <https://docs.qmk.fm/#/newbs>\n\nYou can convert this file to a keymap.c using this command: `qmk json2c {keymap}`\n\nYou can compile this keymap using this command: `qmk compile {keymap}`\"\n",
+  "documentation": "This file is a QMK Configurator export. You can import this at <https://config.qmk.fm>. It can also be used directly with QMK's source code.\n\nTo setup your QMK environment check out the tutorial: <https://docs.qmk.fm/#/newbs>\n\nYou can convert this file to a keymap.c using this command: `qmk json2c {keymap}`\n\nYou can compile this keymap using this command: `qmk compile {keymap}`\n",
   "keyboard": "sofle/rev1",
   "keymap": "my_sofle",
   "layout": "LAYOUT",
@@ -19,7 +18,7 @@
       "KC_9",
       "KC_0",
       "KC_BSPC",
-      "KC_GRV",
+      "KC_TAB",
       "KC_Q",
       "KC_W",
       "KC_E",
@@ -30,8 +29,8 @@
       "KC_I",
       "KC_O",
       "KC_P",
-      "KC_LBRC",
-      "KC_TAB",
+      "KC_HOME",
+      "KC_LSFT",
       "KC_A",
       "KC_S",
       "KC_D",
@@ -43,7 +42,7 @@
       "KC_L",
       "KC_SCLN",
       "KC_QUOT",
-      "KC_LSFT",
+      "KC_LCTL",
       "KC_Z",
       "KC_X",
       "KC_C",
@@ -56,8 +55,8 @@
       "KC_COMM",
       "KC_DOT",
       "KC_SLSH",
-      "KC_RBRC",
-      "KC_LCTL",
+      "KC_END",
+      "KC_GRV",
       "KC_LGUI",
       "KC_LALT",
       "KC_ENT",
@@ -131,5 +130,6 @@
       "KC_DEL"
     ]
   ],
-  "author": ""
+  "author": "",
+  "notes": ""
 }
