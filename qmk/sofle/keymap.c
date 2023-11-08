@@ -6,6 +6,11 @@ enum sofle_layers {
     _1,
 };
 
+enum my_keycodes { TOGGLE_OLED = SAFE_RANGE };
+bool oled_enabled     = true;
+int  oled_msg_idx     = 0;
+int  MAX_OLED_MSG_IDX = 1;
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /*
      * QWERTY
@@ -22,7 +27,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *            |      |      |      |      |/       /         \      \ |      |      |      |      |
      *            `----------------------------------'           '------''---------------------------'
      */
-    [0] = LAYOUT(KC_ESC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_BSPC, KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_HOME, KC_LSFT, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, KC_LCTL, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_MUTE, KC_NO, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_END, KC_GRV, KC_LGUI, KC_LALT, KC_ENT, MO(1), MO(1), KC_SPC, KC_BSLS, KC_RSFT, KC_DEL),
+    [0] = LAYOUT(KC_ESC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_BSPC, KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_HOME, KC_LSFT, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, KC_LCTL, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_MUTE, TOGGLE_OLED, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_END, KC_GRV, KC_LGUI, KC_LALT, KC_ENT, MO(1), MO(1), KC_SPC, KC_BSLS, KC_RSFT, KC_DEL),
     [1] = LAYOUT(KC_ESC, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_BSPC, KC_TAB, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_MINS, KC_EQL, KC_LBRC, KC_RBRC, KC_NO, KC_LSFT, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_NO, KC_NO, KC_LCTL, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_GRV, KC_LGUI, KC_LALT, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO, KC_RSFT, KC_DEL)};
 
 #ifdef OLED_ENABLE
@@ -228,20 +233,41 @@ static void draw_bongo(bool minimal) {
 }
 
 bool oled_task_user(void) {
-    if (is_keyboard_master()) {
-        oled_write("always be the new guy", false);
+    if (!oled_enabled) {
+        oled_off();
     } else {
-        draw_bongo(true);
-        oled_set_cursor(0, 0);
-        oled_write("hi boo!", false);
+        oled_on();
+        if (oled_msg_idx == 0) {
+            if (is_keyboard_master()) {
+                oled_clear();
+                draw_bongo(true);
+                oled_set_cursor(0, 0);
+                oled_write("hi boo!", false);
+            }
+
+        } else if (oled_msg_idx == 1) {
+            if (is_keyboard_master()) {
+                oled_clear();
+                oled_write("always be the new guy", false);
+            }
+        }
     }
+
     return false;
 }
 
 #endif
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    return true;
+    switch (keycode) {
+        case TOGGLE_OLED:
+            if (record->event.pressed) {
+                oled_enabled = !oled_enabled;
+            };
+            return true;
+        default:
+            return true;
+    }
 }
 
 #ifdef ENCODER_ENABLE
@@ -252,6 +278,16 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
             tap_code(KC_VOLU);
         } else {
             tap_code(KC_VOLD);
+        }
+    } else if (index == 1) {
+        if (clockwise) {
+            if (oled_msg_idx < MAX_OLED_MSG_IDX) {
+                oled_msg_idx++;
+            }
+        } else {
+            if (oled_msg_idx > 0) {
+                oled_msg_idx--;
+            }
         }
     }
 
