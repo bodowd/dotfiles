@@ -234,6 +234,7 @@ static void draw_bongo(bool minimal) {
 
 bool oled_task_user(void) {
     if (!oled_enabled) {
+        oled_clear();
         oled_off();
     } else {
         oled_on();
