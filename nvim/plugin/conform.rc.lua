@@ -11,6 +11,7 @@ require("conform").setup({
 		c = { "clang_format" },
 		cpp = { "clang_format" },
 		python = { "black" },
+		rust = { "rust-analyzer" },
 	},
 	format_on_save = function(bufnr)
 		-- Disable autoformat on certain filetypes
