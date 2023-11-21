@@ -41,6 +41,10 @@ keymap.set("n", "<leader>rn", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Le
 
 keymap.set("v", "y", '"+y')
 
+-- search in buffer for the highlighted word
+-- yank, then search with /, then <C-r> " to get from the register, then <CR> for "enter" and run the search
+keymap.set("v", "<leader>/", 'y/<C-r>"<CR>')
+
 -- stay in visual mode after shift
 vim.cmd("vnoremap > >gv")
 vim.cmd("vnoremap < <gv")
