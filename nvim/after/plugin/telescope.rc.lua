@@ -61,3 +61,5 @@ vim.api.nvim_create_user_command("HM", function()
 	print(vim.fn.printf("Added to harpoon"))
 end, { nargs = 0 })
 vim.keymap.set("n", "<leader>h", "<Cmd>Telescope harpoon marks<CR>")
+
+-- ctrl+d deletes the selected mark in harpoon
