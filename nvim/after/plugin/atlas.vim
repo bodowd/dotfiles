@@ -21,7 +21,7 @@ if exists('g:atlas_bold')
 endif
 
 let g:atlas_bold = get(g:, 'atlas_bold', 0)
-hi Keyword gui=bold
+hi Keyword gui=Bold
 hi ColorColumn guifg=NONE ctermfg=NONE guibg=#323232 ctermbg=236 gui=NONE cterm=NONE
 hi CursorColumn guifg=NONE ctermfg=NONE guibg=#323232 ctermbg=236 gui=NONE cterm=NONE
 hi CursorLine guifg=NONE ctermfg=NONE guibg=#323232 ctermbg=236 gui=NONE cterm=NONE
@@ -70,7 +70,7 @@ hi Boolean guifg=#eab504 ctermfg=215 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi Number guifg=#eab504 ctermfg=215 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi Float guifg=#eab504 ctermfg=215 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi Identifier guifg=#eab504 ctermfg=153 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi Function guifg=#eab504 ctermfg=153 guibg=NONE ctermbg=NONE gui=bold cterm=NONE
+hi Function guifg=#eab504 ctermfg=153 guibg=NONE ctermbg=NONE gui=Bold cterm=NONE
 hi Statement guifg=#eab504 ctermfg=153 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi Conditional guifg=#eab504 ctermfg=185 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi Operator guifg=#eab504 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE

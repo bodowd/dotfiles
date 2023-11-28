@@ -29,4 +29,8 @@
 -- vim.cmd("colorscheme tokyonight-night")
 
 -- yellow and black theme
-vim.cmd("source /Users/giwds/dotfiles/nvim/after/plugin/atlas.vim")
+if vim.loop.os_uname().sysname == "Linux" then
+	vim.cmd("source /home/bing/dotfiles/nvim/after/plugin/atlas.vim")
+else
+	vim.cmd("source /Users/giwds/dotfiles/nvim/after/plugin/atlas.vim")
+end
