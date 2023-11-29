@@ -24,6 +24,24 @@ require("tokyonight").setup({
 	on_colors = function(colors)
 		colors.border = "#565f89"
 	end,
+	on_highlights = function(hl, c)
+		hl.NvimTreeNormalNC = {
+			bg = c.bg_dark,
+			fg = "#eab504",
+		}
+		hl.NvimTreeNormal = {
+			bg = c.bg_dark,
+			fg = "#eab504",
+		}
+		hl.NvimTreeFolderName = {
+			bg = c.bg_dark,
+			fg = "#eab504",
+		}
+		hl.NvimTreeOpenedFolderName = {
+			bg = c.bg_dark,
+			fg = "#eab504",
+		}
+	end,
 })
 
 vim.cmd("colorscheme tokyonight-night")
