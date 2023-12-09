@@ -35,6 +35,26 @@ lsp.on_attach(function(client, bufnr)
 	end, opts)
 end)
 
+local cmp = require("cmp")
+local types = require("cmp.types")
+local function deprioritize_snippet(entry1, entry2)
+	if entry1:get_kind() == types.lsp.CompletionItemKind.Snippet then
+		return false
+	end
+	if entry2:get_kind() == types.lsp.CompletionItemKind.Snippet then
+		return true
+	end
+end
+
+cmp.setup({
+	sorting = {
+		priority_weight = 2,
+		comparators = {
+			deprioritize_snippet,
+		},
+	},
+})
+
 -- when renaming across files, it will open it in buffers. Use :wa to save across all buffers
 -- %bd|e# will close the open buffers where the renamed files are
 vim.api.nvim_create_user_command("SaveAndDeleteBuffers", "wa|%bd|e#", { nargs = 0 })
