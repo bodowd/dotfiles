@@ -21,7 +21,7 @@ require("conform").setup({
 		end
 		return {
 			async = false,
-			timeout_ms = 500,
+			timeout_ms = 1000,
 			lsp_fallback = true,
 		}
 	end,
