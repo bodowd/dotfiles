@@ -9,7 +9,7 @@ enum sofle_layers {
 enum my_keycodes { TOGGLE_OLED = SAFE_RANGE };
 bool oled_enabled = true;
 int oled_msg_idx = 0;
-int MAX_OLED_MSG_IDX = 1;
+int MAX_OLED_MSG_IDX = 4;
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /*
@@ -899,15 +899,21 @@ bool oled_task_user(void) {
     oled_off();
   } else {
     oled_on();
-    if (oled_msg_idx == 0) {
+    if (oled_msg_idx < 2) {
       if (is_keyboard_master()) {
         oled_clear();
         draw_bongo(true);
         oled_set_cursor(0, 0);
         oled_write("hi boo!", false);
       }
-
-    } else if (oled_msg_idx == 1) {
+    } else if (oled_msg_idx < 3) {
+      if (is_keyboard_master()) {
+        oled_clear();
+        draw_bongo(true);
+        oled_set_cursor(0, 0);
+        oled_write("hi xty!", false);
+      }
+    } else {
       if (is_keyboard_master()) {
         oled_clear();
         oled_write("don't complain so much", false);
