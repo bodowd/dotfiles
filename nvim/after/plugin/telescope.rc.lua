@@ -112,7 +112,7 @@ telescope.load_extension("harpoon")
 
 vim.keymap.set("n", "<C-f>", builtin.find_files, {})
 vim.keymap.set("n", "<C-g>", builtin.live_grep, {})
-vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
+vim.keymap.set("n", "<leader>b", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 vim.keymap.set("n", "gr", '<Cmd>lua require "telescope.builtin".lsp_references{jump_type="never"}<CR>')
 vim.keymap.set("n", "gd", '<Cmd>lua require "telescope.builtin".lsp_definitions{jump_type="never"}<CR>')
