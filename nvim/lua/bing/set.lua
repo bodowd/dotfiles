@@ -51,8 +51,8 @@ vim.opt.clipboard:append({ "unnamedplus" })
 vim.api.nvim_command("set cursorline")
 
 -- stop automatic newline continuation of comments
-vim.cmd("autocmd BufEnter * set formatoptions-=cro")
-vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
+-- vim.cmd("autocmd BufEnter * set formatoptions-=cro")
+-- vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
 
 -- autoreload the file in the buffer if it's changed outside of vim
 vim.cmd("set autoread")

@@ -6,10 +6,12 @@ end
 local actions = require("telescope.actions")
 local builtin = require("telescope.builtin")
 
+local HEIGHT = 0.35
+local PREVIEWER_ON = false
+
 telescope.setup({
 	defaults = {
 		initial_mode = "normal",
-		layout_strategy = "flex",
 		mappings = {
 			i = {
 				["<C-c>"] = actions.close,
@@ -26,16 +28,82 @@ telescope.setup({
 				return { "--hidden" }
 			end,
 			initial_mode = "insert",
+			theme = "ivy",
+			previewer = PREVIEWER_ON,
+			layout_config = {
+				height = HEIGHT,
+			},
 		},
 		find_files = {
 			find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/**" },
 			initial_mode = "insert",
+			theme = "ivy",
+			previewer = PREVIEWER_ON,
+			layout_config = {
+				height = HEIGHT,
+			},
 		},
 		current_buffer_fuzzy_find = {
 			initial_mode = "insert",
+			theme = "ivy",
+			previewer = PREVIEWER_ON,
+			layout_config = {
+				height = HEIGHT,
+			},
 		},
 		help_tags = {
 			initial_mode = "insert",
+			theme = "ivy",
+			previewer = PREVIEWER_ON,
+			layout_config = {
+				height = HEIGHT,
+			},
+		},
+		buffers = {
+			theme = "ivy",
+			previewer = PREVIEWER_ON,
+			layout_config = {
+				height = HEIGHT,
+			},
+		},
+		lsp_document_symbols = {
+			theme = "ivy",
+			-- previewer = PREVIEWER_ON,
+			layout_config = {
+				height = HEIGHT,
+			},
+		},
+		diagnostics = {
+			theme = "ivy",
+			-- previewer = PREVIEWER_ON,
+			layout_config = {
+				height = HEIGHT,
+			},
+		},
+		git_status = {
+			-- previewer = PREVIEWER_ON,
+			theme = "ivy",
+			layout_config = {
+				height = 0.7,
+			},
+		},
+		lsp_references = {
+			theme = "ivy",
+			layout_config = {
+				height = HEIGHT,
+			},
+		},
+		lsp_definitions = {
+			theme = "ivy",
+			layout_config = {
+				height = HEIGHT,
+			},
+		},
+		lsp_type_definitions = {
+			theme = "ivy",
+			layout_config = {
+				height = HEIGHT,
+			},
 		},
 	},
 })
@@ -60,6 +128,10 @@ vim.api.nvim_create_user_command("HM", function()
 	require("harpoon.mark").add_file()
 	print(vim.fn.printf("Added to harpoon"))
 end, { nargs = 0 })
-vim.keymap.set("n", "<leader>h", "<Cmd>Telescope harpoon marks<CR>")
+vim.keymap.set(
+	"n",
+	"<leader>h",
+	"<Cmd>Telescope harpoon marks theme=ivy previewer=false layout_config={height=0.3} <CR>"
+)
 
 -- ctrl+d deletes the selected mark in harpoon
