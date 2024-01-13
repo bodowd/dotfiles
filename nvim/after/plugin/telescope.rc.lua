@@ -19,6 +19,7 @@ telescope.setup({
 			n = {
 				["<C-c>"] = actions.close,
 				["<C-s>"] = actions.select_horizontal,
+				["<C-d>"] = actions.delete_buffer,
 			},
 		},
 	},
