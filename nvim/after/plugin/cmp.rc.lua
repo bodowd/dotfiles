@@ -26,6 +26,9 @@ cmp.setup({
 	formatting = {
 		format = lspkind.cmp_format({ with_text = true, maxwidth = 50 }),
 	},
+	enabled = function()
+		return (vim.bo.ft ~= "markdown")
+	end,
 })
 
 -- vim.cmd [[
