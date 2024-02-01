@@ -18,8 +18,8 @@ vim.cmd("nnoremap <leader>1 1gt")
 vim.cmd("nnoremap <leader>2 2gt")
 vim.cmd("nnoremap <leader>3 3gt")
 vim.cmd("nnoremap <leader>4 4gt")
-vim.cmd("nnoremap H :bprev<CR>")
-vim.cmd("nnoremap L :bnext<CR>")
+vim.cmd("nnoremap H :tabprevious<CR>")
+vim.cmd("nnoremap L :tabnext<CR>")
 
 -- move highlighted lines up and down
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
