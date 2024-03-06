@@ -6,6 +6,7 @@ end
 ts.setup({
 	highlight = {
 		enable = true,
+		additional_vim_regex_highlighting = false,
 		disable = {},
 	},
 	indent = {
@@ -29,6 +30,7 @@ ts.setup({
 		"c",
 		"cpp",
 		"markdown",
+		"templ",
 	},
 	autotag = {
 		enable = true,
@@ -41,6 +43,12 @@ ts.setup({
 			scope_incremental = "<S-CR>",
 			node_decremental = "<BS>",
 		},
+	},
+})
+
+vim.filetype.add({
+	extension = {
+		templ = "templ",
 	},
 })
 
