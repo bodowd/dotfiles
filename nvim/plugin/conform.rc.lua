@@ -13,6 +13,7 @@ require("conform").setup({
 		cpp = { "clang_format" },
 		python = { "black" },
 		rust = { "rust-analyzer" },
+		terraform = { "terraformls" },
 	},
 	format_on_save = function(bufnr)
 		-- Disable autoformat on certain filetypes
