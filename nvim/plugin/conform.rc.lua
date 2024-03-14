@@ -14,6 +14,7 @@ require("conform").setup({
 		python = { "black" },
 		rust = { "rust-analyzer" },
 		terraform = { "terraformls" },
+		templ = { "templ" },
 	},
 	format_on_save = function(bufnr)
 		-- Disable autoformat on certain filetypes
