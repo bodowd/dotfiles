@@ -67,7 +67,7 @@ return require("packer").startup(function(use)
 	use("ThePrimeagen/harpoon")
 
 	use("kyazdani42/nvim-web-devicons") -- File icons for telescope browswer
-	use("onsails/lspkind-nvim") -- VSCode like pictograms
+	-- use("onsails/lspkind-nvim") -- VSCode like pictograms
 
 	use("numToStr/Comment.nvim")
 
