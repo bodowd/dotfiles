@@ -42,6 +42,9 @@ cmp.setup({
 	end,
 })
 
+cmp.setup.filetype("gitcommit", {
+	completion = { autocomplete = false },
+})
 -- vim.cmd [[
 --   set completeopt=menuone,noinsert,noselect
 --   highlight! default link CmpItemKind CmpItemMenuDefault
