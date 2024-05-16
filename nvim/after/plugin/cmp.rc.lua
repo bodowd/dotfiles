@@ -11,6 +11,10 @@ cmp.setup({
 			require("luasnip").lsp_expand(args.body)
 		end,
 	},
+	-- needs to be toggled with <C-n> to turn on the autocomplete menu
+	completion = {
+		autocomplete = false,
+	},
 	mapping = cmp.mapping.preset.insert({
 		["<Tab>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s" }),
 		["<S-Tab>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s" }),
