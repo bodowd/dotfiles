@@ -16,6 +16,7 @@ cmp.setup({
 		autocomplete = false,
 	},
 	mapping = cmp.mapping.preset.insert({
+		["<C-Space>"] = cmp.mapping.complete(),
 		["<Tab>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s" }),
 		["<S-Tab>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s" }),
 		["<C-c>"] = cmp.mapping(cmp.mapping.abort()),
