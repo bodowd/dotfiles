@@ -11,7 +11,7 @@ cmp.setup({
 			require("luasnip").lsp_expand(args.body)
 		end,
 	},
-	performance = { max_view_entries = 3 },
+	performance = { max_view_entries = 5 },
 	mapping = cmp.mapping.preset.insert({
 		["<Tab>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s" }),
 		["<S-Tab>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s" }),
