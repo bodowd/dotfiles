@@ -11,7 +11,6 @@ cmp.setup({
 			require("luasnip").lsp_expand(args.body)
 		end,
 	},
-	performance = { max_view_entries = 5 },
 	mapping = cmp.mapping.preset.insert({
 		["<Tab>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s" }),
 		["<S-Tab>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s" }),
@@ -46,6 +45,11 @@ cmp.setup({
 cmp.setup.filetype("gitcommit", {
 	completion = { autocomplete = false },
 })
+
+-- this sets te max number of items to show in the popup menu
+-- still can scroll through the options
+vim.opt.pumheight = 5
+
 -- vim.cmd [[
 --   set completeopt=menuone,noinsert,noselect
 --   highlight! default link CmpItemKind CmpItemMenuDefault
