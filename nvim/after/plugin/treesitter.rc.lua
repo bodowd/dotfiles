@@ -32,9 +32,6 @@ ts.setup({
 		"markdown",
 		"templ",
 	},
-	autotag = {
-		enable = true,
-	},
 	incremental_selection = {
 		enable = true,
 		keymaps = {
