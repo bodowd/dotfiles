@@ -8,4 +8,6 @@ function SpellToggle()
 	end
 end
 
-vim.keymap.set("n", "<leader>sp", ":lua SpellToggle()<cr>")
+vim.api.nvim_create_user_command("ST", function()
+	SpellToggle()
+end, { nargs = 0 })
