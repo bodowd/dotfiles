@@ -14,7 +14,6 @@ keymap.set("n", "<C-down>", "<C-w>-")
 vim.cmd("nnoremap <F1> <Nop>")
 vim.cmd("inoremap <F1> <Nop>")
 
-vim.cmd("nnoremap <leader>b :buffer ")
 vim.cmd("nnoremap H :bprevious<CR>")
 vim.cmd("nnoremap L :bnext<CR>")
 vim.api.nvim_create_user_command("Bd", ":bp | sp | bn | bd", {})

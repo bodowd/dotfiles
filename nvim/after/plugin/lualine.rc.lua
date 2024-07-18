@@ -15,18 +15,18 @@ require("lualine").setup({
 			"diff",
 			"diagnostics",
 		},
-		lualine_c = {
-			{
-				"buffers",
-				mode = 4,
-				symbols = {
-					modified = " ●", -- Text to show when the buffer is modified
-					alternate_file = "#", -- Text to show to identify the alternate file
-					directory = "", -- Text to show when the buffer is a directory
-				},
-			},
-		},
-		lualine_x = { { "filename", path = 1 } },
+		-- lualine_c = {
+		-- 	{
+		-- 		"buffers",
+		-- 		mode = 4,
+		-- 		symbols = {
+		-- 			modified = " ●", -- Text to show when the buffer is modified
+		-- 			alternate_file = "#", -- Text to show to identify the alternate file
+		-- 			directory = "", -- Text to show when the buffer is a directory
+		-- 		},
+		-- 	},
+		-- },
+		lualine_c = { { "filename", path = 1 } },
 		-- lualine_x = { "filetype" },
 		lualine_y = { "progress" },
 		lualine_z = { "location" },
