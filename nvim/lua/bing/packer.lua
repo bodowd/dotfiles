@@ -72,5 +72,4 @@ return require("packer").startup(function(use)
 	use("numToStr/Comment.nvim")
 
 	use("folke/todo-comments.nvim")
-	use("nanozuki/tabby.nvim")
 end)
