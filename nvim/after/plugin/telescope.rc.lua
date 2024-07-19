@@ -67,6 +67,8 @@ telescope.setup({
 			layout_config = {
 				height = HEIGHT,
 			},
+			ignore_current_buffer = true,
+			sort_mru = true,
 		},
 		lsp_document_symbols = {
 			theme = "ivy",
