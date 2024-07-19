@@ -1,6 +1,6 @@
 require("lualine").setup({
 	options = {
-		theme = "tokyonight",
+		theme = "tokyonight-night",
 		section_separators = "",
 		component_separators = "",
 		disabled_filetypes = { "NvimTree", "toggleterm" },
