@@ -61,7 +61,7 @@ telescope.setup({
 			},
 		},
 		buffers = {
-			initial_mode = "insert",
+			initial_mode = "normal",
 			theme = "ivy",
 			previewer = PREVIEWER_ON,
 			layout_config = {
