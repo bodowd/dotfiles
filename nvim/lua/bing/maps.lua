@@ -13,6 +13,10 @@ keymap.set("n", "<C-down>", "<C-w>-")
 -- remap F1 to do nothing. Keep accidently hitting it
 vim.cmd("nnoremap <F1> <Nop>")
 vim.cmd("inoremap <F1> <Nop>")
+-- make C-a do nothing. I use it for kitty and in in vim it keeps incrementing numbers and messing things up
+vim.cmd("vnoremap <C-a> <Nop>")
+vim.cmd("inoremap <C-a> <Nop>")
+vim.cmd("nnoremap <C-a> <Nop>")
 
 vim.cmd("nnoremap H :tabprevious<CR>")
 vim.cmd("nnoremap L :tabnext<CR>")
