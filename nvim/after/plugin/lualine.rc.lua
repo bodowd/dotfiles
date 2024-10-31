@@ -6,7 +6,7 @@ require("lualine").setup({
 		disabled_filetypes = { "NvimTree", "toggleterm" },
 	},
 	sections = {
-		lualine_a = { "mode" },
+		lualine_a = {},
 		lualine_b = {
 			{
 				"branch",
