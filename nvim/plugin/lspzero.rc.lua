@@ -11,7 +11,16 @@ lsp.set_preferences({
 		info = "I",
 	},
 })
-
+local border = {
+	{ "┌", "FloatBorder" },
+	{ "─", "FloatBorder" },
+	{ "┐", "FloatBorder" },
+	{ "│", "FloatBorder" },
+	{ "┘", "FloatBorder" },
+	{ "─", "FloatBorder" },
+	{ "└", "FloatBorder" },
+	{ "│", "FloatBorder" },
+}
 lsp.on_attach(function(client, bufnr)
 	local opts = { buffer = bufnr, remap = false }
 	local bind = vim.keymap.set
@@ -19,7 +28,7 @@ lsp.on_attach(function(client, bufnr)
 		vim.lsp.buf.rename()
 	end, opts)
 	bind("n", "K", function()
-		vim.lsp.buf.hover()
+		vim.lsp.buf.hover({ border = border })
 	end, opts)
 	bind("n", "<C-k>", function()
 		vim.diagnostic.open_float()
