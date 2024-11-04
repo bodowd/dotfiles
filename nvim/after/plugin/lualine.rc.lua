@@ -29,6 +29,6 @@ require("lualine").setup({
 		lualine_c = { { "filename", path = 1 } },
 		lualine_x = {},
 		lualine_y = { "progress" },
-		lualine_z = { "location" },
+		lualine_z = {},
 	},
 })
