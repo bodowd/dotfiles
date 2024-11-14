@@ -34,6 +34,7 @@ telescope.setup({
 			layout_config = {
 				height = HEIGHT,
 			},
+			file_ignore_patterns = { ".git/", ".cache" },
 		},
 		find_files = {
 			find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/**" },
