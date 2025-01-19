@@ -20,8 +20,6 @@ vim.cmd("nnoremap <C-a> <Nop>")
 
 vim.cmd("nnoremap H :tabprevious<CR>")
 vim.cmd("nnoremap L :tabnext<CR>")
-vim.cmd("nnoremap <C-l> :bnext<CR>")
-vim.cmd("nnoremap <C-h> :bprev<CR>")
 vim.api.nvim_create_user_command("Bd", ":bp | sp | bn | bd", {})
 
 -- move highlighted lines up and down
