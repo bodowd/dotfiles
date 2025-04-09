@@ -2,9 +2,9 @@ require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
 		json = { "prettier" },
-		typescript = { "prettier", "eslint_d" },
-		typescriptreact = { "prettier", "eslint_d" },
-		javascript = { "prettier", "eslint_d" },
+		typescript = { "eslint_d", "prettier", stop_after_first = true },
+		typescriptreact = { "eslint_d", "prettier", stop_after_first = true },
+		javascript = { "eslint_d", "prettier", stop_after_first = true },
 		html = { "prettier" },
 		css = { "prettier" },
 		markdown = { "prettier" },
