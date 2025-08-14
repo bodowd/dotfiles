@@ -11,7 +11,7 @@ require("conform").setup({
 		graphql = { "prettier" },
 		c = { "clang_format" },
 		cpp = { "clang_format" },
-		python = { "black" },
+		python = { "ruff", stop_after_first = true },
 		rust = { "rust-analyzer" },
 		terraform = { "terraformls" },
 		templ = { "templ" },
