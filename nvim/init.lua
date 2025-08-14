@@ -1148,8 +1148,8 @@ require('lazy').setup({
       }
 
       -- Key mappings
-      vim.keymap.set('n', '<leader>tt', '<Cmd>NvimTreeToggle<CR>')
-      vim.keymap.set('n', '<leader>tf', '<Cmd>NvimTreeFindFile<CR>')
+      vim.keymap.set('n', '<leader>tt', '<Cmd>NvimTreeToggle<CR>', { desc = 'Toggle NvimTree' })
+      vim.keymap.set('n', '<leader>tf', '<Cmd>NvimTreeFindFile<CR>', { desc = 'Toggle NvimTree and go to file' })
     end,
   },
   {
