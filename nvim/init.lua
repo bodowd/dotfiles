@@ -193,6 +193,9 @@ vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
 vim.cmd 'nnoremap H :tabprevious<CR>'
 vim.cmd 'nnoremap L :tabnext<CR>'
+-- stay in visual mode after shift
+vim.cmd 'vnoremap <tab> >gv'
+vim.cmd 'vnoremap <S-tab> <gv'
 
 -- TIP: Disable arrow keys in normal mode
 -- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
