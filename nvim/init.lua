@@ -670,8 +670,12 @@ require('lazy').setup({
           map('gra', vim.lsp.buf.code_action, '[G]oto Code [A]ction', { 'n', 'x' })
 
           -- Find references for the word under your cursor.
-          map('grr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-
+          vim.keymap.set(
+            'n',
+            'grr',
+            '<Cmd>lua require "telescope.builtin".lsp_references{jump_type="never"}<CR>',
+            { buffer = event.buf, desc = 'LSP: [G]oto [R]eferences' }
+          )
           -- Jump to the implementation of the word under your cursor.
           --  Useful when your language has ways of declaring types without an actual implementation.
           map('gri', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
@@ -679,7 +683,12 @@ require('lazy').setup({
           -- Jump to the definition of the word under your cursor.
           --  This is where a variable was first declared, or where a function is defined, etc.
           --  To jump back, press <C-t>.
-          map('grd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+          vim.keymap.set(
+            'n',
+            'grd',
+            '<Cmd>lua require "telescope.builtin".lsp_definitions{jump_type="never"}<CR>',
+            { buffer = event.buf, desc = 'LSP: [G]oto [D]efinitions' }
+          )
 
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header.
