@@ -487,7 +487,8 @@ require('lazy').setup({
           },
           diagnostics = {
             theme = 'ivy',
-            -- previewer = PREVIEWER_ON,
+            initial_mode = 'normal',
+            previewer = PREVIEWER_ON,
             layout_config = {
               height = HEIGHT,
             },
