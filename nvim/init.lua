@@ -455,7 +455,7 @@ require('lazy').setup({
           current_buffer_fuzzy_find = {
             initial_mode = 'insert',
             theme = 'ivy',
-            previewer = PREVIEWER_ON,
+            previewer = true,
             layout_config = {
               height = HEIGHT,
             },
