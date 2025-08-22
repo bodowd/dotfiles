@@ -121,6 +121,9 @@ vim.schedule(function()
   vim.o.clipboard = 'unnamedplus'
 end)
 
+-- Disable line wrap
+vim.o.wrap = false
+
 -- Enable break indent
 vim.o.breakindent = true
 
