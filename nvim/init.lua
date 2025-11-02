@@ -920,6 +920,7 @@ require('lazy').setup({
         typescript = { 'eslint_d', 'prettier', stop_after_first = true },
         typescriptreact = { 'eslint_d', 'prettier', stop_after_first = true },
         javascript = { 'eslint_d', 'prettier', stop_after_first = true },
+        markdown = { 'prettier' },
       },
     },
   },
