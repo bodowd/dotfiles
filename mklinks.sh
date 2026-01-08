@@ -6,4 +6,4 @@ if [[ $(uname -s) = "Linux" ]]; then
     echo "linking kitty.app to /usr/local/bin"
     sudo ln -sfn ~/.local/kitty.app/bin/kitty /usr/local/bin/
 fi
-ln -sfn ~/dotfiles/kitty/ ~/.config/kitty
+ln -sfn ~/dotfiles/kitty/ ~/.config/
