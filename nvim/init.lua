@@ -860,6 +860,15 @@ require('lazy').setup({
         'stylua', -- Used to format Lua code
         'clangd',
         'clang-format',
+        'eslint_d',
+        'lua_ls',
+        'mypy',
+        'pyright',
+        'ruff',
+        'shfmt',
+        'terraform',
+        'terraform-ls',
+        'ts_ls',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
