@@ -445,7 +445,7 @@ require('lazy').setup({
             end,
             initial_mode = 'insert',
             theme = 'ivy',
-            previewer = PREVIEWER_ON,
+            previewer = true,
             layout_config = {
               height = HEIGHT,
             },
