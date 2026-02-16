@@ -85,7 +85,6 @@ P.S. You can delete this when you're done too. It's your config now! :)
 --]]
 
 local HEIGHT = 0.35
-local PREVIEWER_ON = false
 
 -- Set <space> as the leader key
 -- See `:help mapleader`
@@ -455,7 +454,7 @@ require('lazy').setup({
             find_command = { 'rg', '--files', '--hidden', '--glob', '!**/.git/**' },
             initial_mode = 'insert',
             theme = 'ivy',
-            previewer = PREVIEWER_ON,
+            previewer = false,
             layout_config = {
               height = HEIGHT,
             },
@@ -471,7 +470,7 @@ require('lazy').setup({
           help_tags = {
             initial_mode = 'insert',
             theme = 'ivy',
-            previewer = PREVIEWER_ON,
+            previewer = false,
             layout_config = {
               height = HEIGHT,
             },
@@ -479,7 +478,7 @@ require('lazy').setup({
           buffers = {
             initial_mode = 'normal',
             theme = 'ivy',
-            previewer = PREVIEWER_ON,
+            previewer = false,
             layout_config = {
               height = HEIGHT,
             },
@@ -496,7 +495,7 @@ require('lazy').setup({
           diagnostics = {
             theme = 'ivy',
             initial_mode = 'normal',
-            previewer = PREVIEWER_ON,
+            previewer = false,
             layout_config = {
               height = HEIGHT,
             },
