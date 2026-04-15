@@ -1,4 +1,9 @@
 font-family = JetBrainsMono
+font-size = 16
+font-feature = -dlig
+font-feature = -liga
+font-feature = -calt
+
 
 keybind = ctrl+a>shift+5=new_split
 keybind = ctrl+a>l=goto_split:right
