@@ -1,5 +1,7 @@
 font-family = JetBrainsMono
 font-size = 16
+font-thicken = true
+font-thicken-strength = 0
 font-feature = -dlig
 font-feature = -liga
 font-feature = -calt
