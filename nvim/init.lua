@@ -231,6 +231,18 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
+vim.keymap.set('n', '<CR>', function()
+  require('vim.treesitter._select').select_parent()
+end, { desc = 'Increment selection' })
+
+vim.keymap.set('x', '<CR>', function()
+  require('vim.treesitter._select').select_parent()
+end, { desc = 'Incremental scope (parent)' })
+
+vim.keymap.set('x', '<BS>', function()
+  require('vim.treesitter._select').select_child()
+end, { desc = 'Decrement selection' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -1107,15 +1119,6 @@ require('lazy').setup({
         additional_vim_regex_highlighting = { 'ruby' },
       },
       indent = { enable = true, disable = { 'ruby' } },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = '<CR>',
-          node_incremental = '<CR>',
-          scope_incremental = '<S-CR>',
-          node_decremental = '<BS>',
-        },
-      },
     },
     -- There are additional nvim-treesitter modules that you can use to interact
     -- with nvim-treesitter. You should go explore a few and see what interests you:
