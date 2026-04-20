@@ -243,42 +243,6 @@ vim.keymap.set('x', '<BS>', function()
   require('vim.treesitter._select').select_child()
 end, { desc = 'Decrement selection' })
 
--- new treesitter as of April 20, 2026 requires manually starting treesitter
-local ensure_installed_treesitter = {
-  'bash',
-  'java',
-  'diff',
-  'html',
-  'lua',
-  'luadoc',
-  'markdown',
-  'markdown_inline',
-  'query',
-  'vim',
-  'vimdoc',
-  'typescript',
-  'tsx',
-  'toml',
-  'json',
-  'yaml',
-  'css',
-  'html',
-  'python',
-  'go',
-  'hcl',
-  'c',
-  'cpp',
-}
-
-for _, ft in ipairs(ensure_installed_treesitter) do
-  vim.api.nvim_create_autocmd('FileType', {
-    pattern = ft,
-    callback = function()
-      vim.treesitter.start()
-    end,
-  })
-end
-
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -1114,30 +1078,59 @@ require('lazy').setup({
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
-  { -- Highlight, edit, and navigate code
+  {
     'nvim-treesitter/nvim-treesitter',
-    build = ':TSUpdate',
     lazy = false,
-    -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
-    opts = {
-      ensure_installed = ensure_installed_treesitter,
-      -- Autoinstall languages that are not installed
-      auto_install = true,
-      highlight = {
-        enable = true,
-        -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
-        --  If you are experiencing weird indenting issues, add the language to
-        --  the list of additional_vim_regex_highlighting and disabled languages for indent.
-        additional_vim_regex_highlighting = { 'ruby' },
-      },
-      indent = { enable = true, disable = { 'ruby' } },
-    },
-    -- There are additional nvim-treesitter modules that you can use to interact
-    -- with nvim-treesitter. You should go explore a few and see what interests you:
-    --
-    --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
-    --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
-    --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+    build = ':TSUpdate',
+    branch = 'main',
+    config = function()
+      local ts = require 'nvim-treesitter'
+
+      local languages = {
+        'bash',
+        'java',
+        'diff',
+        'html',
+        'lua',
+        'luadoc',
+        'markdown',
+        'markdown_inline',
+        'query',
+        'vim',
+        'vimdoc',
+        'typescript',
+        'tsx',
+        'toml',
+        'json',
+        'yaml',
+        'css',
+        'python',
+        'go',
+        'hcl',
+        'c',
+        'cpp',
+      }
+      ts.install(languages)
+
+      local ts_settings = vim.api.nvim_create_augroup('TSSettings', { clear = true })
+      vim.api.nvim_create_autocmd('FileType', {
+        desc = 'Set up nvim-treesitter highlighting and indentation',
+        group = ts_settings,
+        pattern = languages,
+        callback = function()
+          -- Syntax highlighting, provided by Neovim
+          vim.treesitter.start()
+          -- Indentation, provided by nvim-treesitter
+          vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+          -- Folds using treesitter expr, provided by Neovim
+          vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+          vim.wo[0][0].foldmethod = 'expr'
+        end,
+      })
+      -- Start every file with folds open
+      vim.opt.foldlevel = 99
+      vim.opt.foldlevelstart = 99
+    end,
   },
 
   -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
