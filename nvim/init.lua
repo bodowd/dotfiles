@@ -243,6 +243,42 @@ vim.keymap.set('x', '<BS>', function()
   require('vim.treesitter._select').select_child()
 end, { desc = 'Decrement selection' })
 
+-- new treesitter as of April 20, 2026 requires manually starting treesitter
+local ensure_installed_treesitter = {
+  'bash',
+  'java',
+  'diff',
+  'html',
+  'lua',
+  'luadoc',
+  'markdown',
+  'markdown_inline',
+  'query',
+  'vim',
+  'vimdoc',
+  'typescript',
+  'tsx',
+  'toml',
+  'json',
+  'yaml',
+  'css',
+  'html',
+  'python',
+  'go',
+  'hcl',
+  'c',
+  'cpp',
+}
+
+for _, ft in ipairs(ensure_installed_treesitter) do
+  vim.api.nvim_create_autocmd('FileType', {
+    pattern = ft,
+    callback = function()
+      vim.treesitter.start()
+    end,
+  })
+end
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -1084,31 +1120,7 @@ require('lazy').setup({
     lazy = false,
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
-      ensure_installed = {
-        'bash',
-        'java',
-        'diff',
-        'html',
-        'lua',
-        'luadoc',
-        'markdown',
-        'markdown_inline',
-        'query',
-        'vim',
-        'vimdoc',
-        'typescript',
-        'tsx',
-        'toml',
-        'json',
-        'yaml',
-        'css',
-        'html',
-        'python',
-        'go',
-        'hcl',
-        'c',
-        'cpp',
-      },
+      ensure_installed = ensure_installed_treesitter,
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
