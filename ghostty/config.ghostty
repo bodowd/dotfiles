@@ -33,3 +33,5 @@ keybind = ctrl+a>6=goto_tab:6
 keybind = ctrl+a>7=goto_tab:7
 keybind = ctrl+a>8=goto_tab:8
 keybind = ctrl+a>9=goto_tab:9
+
+gtk-titlebar-style = tabs
