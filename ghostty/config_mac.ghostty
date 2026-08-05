@@ -1,12 +1,15 @@
 font-family = JetBrainsMono
+font-size = 16
+font-thicken = true
+font-thicken-strength = 0
 font-feature = -dlig
 font-feature = -liga
 font-feature = -calt
 
 
 keybind = ctrl+a>shift+5=new_split
-keybind = ctrl+a>l=goto_split:next
-keybind = ctrl+a>h=goto_split:previous
+keybind = ctrl+a>l=goto_split:right
+keybind = ctrl+a>h=goto_split:left
 keybind = ctrl+a>j=goto_split:down
 keybind = ctrl+a>k=goto_split:up
 
@@ -34,4 +37,3 @@ keybind = ctrl+a>7=goto_tab:7
 keybind = ctrl+a>8=goto_tab:8
 keybind = ctrl+a>9=goto_tab:9
 
-gtk-titlebar-style = tabs
