@@ -633,7 +633,17 @@ require('lazy').setup({
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
       -- Useful status updates for LSP.
-      { 'j-hui/fidget.nvim', opts = {} },
+      {
+        'j-hui/fidget.nvim',
+        opts = {
+          notification = {
+            window = {
+              align = 'top',
+              h_align = 'right',
+            },
+          },
+        },
+      },
 
       -- Allows extra capabilities provided by blink.cmp
       'saghen/blink.cmp',
@@ -890,6 +900,7 @@ require('lazy').setup({
         'clangd',
         'clang-format',
         'eslint_d',
+        'jdtls',
         'lua_ls',
         'mypy',
         'pyright',
@@ -1143,6 +1154,51 @@ require('lazy').setup({
       -- Start every file with folds open
       vim.opt.foldlevel = 99
       vim.opt.foldlevelstart = 99
+    end,
+  },
+
+  { -- nvim-jdtls: Enhanced Java development
+    'mfussenegger/nvim-jdtls',
+    ft = 'java',
+    config = function()
+      local jdtls = require 'jdtls'
+      local home = os.getenv 'HOME'
+      local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+
+      local config = {
+        cmd = {
+          'java',
+          '-Declipse.application=org.eclipse.jdt.ls.core.id1',
+          '-Dosgi.bundles.defaultStartLevel=4',
+          '-Declipse.product=org.eclipse.jdt.ls.core.product',
+          '-Dlog.protocol=false',
+          '-Dlog.level=OFF',
+          '-Xmx1g',
+          '--add-modules=ALL-SYSTEM',
+          '--add-opens',
+          'java.base/java.util=ALL-UNNAMED',
+          '--add-opens',
+          'java.base/java.lang=ALL-UNNAMED',
+          '-jar',
+          vim.fn.glob(home .. '/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar'),
+          '-configuration',
+          home .. '/.local/share/nvim/mason/packages/jdtls/config_mac_arm64', -- Change to config_linux or config_mac as needed
+          '-data',
+          home .. '/.cache/jdtls-workspace/' .. project_name,
+        },
+        root_dir = jdtls.setup.find_root { '.git', 'mvnw', 'gradlew', 'pom.xml', 'build.gradle' },
+        settings = {
+          java = {
+            eclipse = {
+              downloadSources = true,
+            },
+            maven = {
+              downloadSources = true,
+            },
+          },
+        },
+      }
+      jdtls.start_or_attach(config)
     end,
   },
 
